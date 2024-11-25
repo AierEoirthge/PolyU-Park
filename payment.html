@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="js/payment.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .container {
+        margin-top: 50px;
+        max-width: 600px;
+      }
+      .info {
+        margin: 10px 0;
+      }
+      .payment-option {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Booking Confirmation</h1>
+      <div class="info"><strong>Selected Date:</strong> <span id="selectedDate"></span></div>
+
+      <div class="info"><strong>Selected Parking Spot ID:</strong> <span id="selectedParkId"></span></div>
+
+      <div class="info"><strong>Booking Duration:</strong> <span id="durationDisplay"></span></div>
+
+      <h2 class="mt-4">Choose Payment Method</h2>
+      <div class="form-group">
+        <select id="paymentMethod" class="form-control">
+          <option value="">Select Payment Method</option>
+          <option value="creditCard">Credit Card</option>
+          <option value="alipay">Alipay</option>
+          <option value="wechat">WeChat Pay</option>
+        </select>
+      </div>
+
+      <div id="creditCard" class="payment-option">
+        <h4>Credit Card Details</h4>
+        <form id="paymentForm">
+          <div class="form-group">
+            <label for="cardNumber">Card Number</label>
+            <input type="text" class="form-control" id="cardNumber" required />
+          </div>
+          <div class="form-group">
+            <label for="expiryDate">Expiry Date (MM/YY)</label>
+            <input type="text" class="form-control" id="expiryDate" required />
+          </div>
+          <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input type="text" class="form-control" id="cvv" required />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Pay Now</button>
+        </form>
+      </div>
+
+      <div id="alipay" class="payment-option">
+        <h4>Alipay</h4>
+        <p>Please scan the QR code to pay:</p>
+        <img src="QRcode/payment.png" alt="Alipay QR Code" class="img-fluid" />
+        <button id="alipayDone" class="btn btn-success btn-block">I have completed the payment</button>
+      </div>
+
+      <div id="wechat" class="payment-option">
+        <h4>WeChat Pay</h4>
+        <p>Please scan the QR code to pay:</p>
+        <img src="QRcode/payment.png" alt="WeChat QR Code" class="img-fluid" />
+        <button id="wechatDone" class="btn btn-success btn-block">I have completed the payment</button>
+      </div>
+    </div>
+  </body>
+</html>
